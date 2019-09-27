@@ -3,6 +3,9 @@
 ## Overview
 The Deriver Tool functions as a standalone address deriver. Capable of deriving addresses from BIP44, BIP49, and BIP84 extended keys (`xpub`, `ypub`, and `zpub` respectively).
 
+### How To Use
+Download the .zip file from the [Releases](https://github.com/Septem151/Deriver-Tool/releases/tag/v1.0) page.
+
 ### Program Flow
 ```
 Prompt for an account-level extended public key
