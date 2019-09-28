@@ -31,22 +31,6 @@ public class Bytes {
     }
 
     /**
-     * Converts a byte array into its hexadecimal string representation.
-     *
-     * @param bytes the byte array to convert.
-     * @return a hexadecimal string representation of bytes.
-     */
-    public static String toHex(byte[] bytes) {
-        char[] hexChars = new char[bytes.length * 2];
-        for (int i = 0; i < bytes.length; i++) {
-            int v = bytes[i] & 0xFF;
-            hexChars[i * 2] = HEX_ARRAY[v >>> 4];
-            hexChars[i * 2 + 1] = HEX_ARRAY[v & 0x0F];
-        }
-        return new String(hexChars);
-    }
-
-    /**
      * Encodes the given public key hash as a P2PKH address.
      *
      * @param pubKeyHash the public key hash to encode

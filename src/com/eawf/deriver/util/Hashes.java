@@ -26,29 +26,6 @@ public class Hashes {
     } // Non-instantiable
 
     /**
-     * Password Based Key Derivation Function 2. Generates stretched bytes based
-     * on a given password, given salt, number of iterations of the underlying
-     * hash function, and has a length of {@code dkLen}.
-     *
-     * @param password the password used to derive the bytes.
-     * @param salt the salt used to derive the bytes.
-     * @param iterations the number of iterations of the underlying hash
-     * function SHA-512.
-     * @param dkLen the length of the derived bytes.
-     * @return the derived bytes based on the password and salt given.
-     */
-    public static byte[] PBKDF2(char[] password, byte[] salt, int iterations, int dkLen) {
-        try {
-            SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
-            KeySpec spec = new PBEKeySpec(password, salt, iterations, dkLen);
-            SecretKey secret = factory.generateSecret(spec);
-            return secret.getEncoded();
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    /**
      * Hashed Message Authentication Code, using SHA-512.
      *
      * @param key the key used to encode the message.
@@ -94,7 +71,7 @@ public class Hashes {
             throw new RuntimeException(ex);
         }
     }
-    
+
     /**
      * @param data the data to hash.
      * @return the SHA-256 hash of the SHA-256 hash of the data.
